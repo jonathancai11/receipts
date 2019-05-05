@@ -10,9 +10,11 @@ google-resumable-media==0.3.2
 googleapis-common-protos==1.5.10
 grpcio==1.20.1
 idna==2.8
+Pillow==6.0.0
 protobuf==3.7.1
 pyasn1==0.4.5
 pyasn1-modules==0.2.5
+pytesseract==0.2.6
 pytz==2019.1
 requests==2.21.0
 rsa==4.0
