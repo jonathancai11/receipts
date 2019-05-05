@@ -13,10 +13,12 @@ def create_bucket(bucket_name):
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(bucket_name)
+    client = storage.Client()
+    try:
+        bucket = client.get_bucket("my-bucket")
+    except:
+        print("Sorry, that bucket does not exist!")
     blob = bucket.blob(destination_blob_name)
-
     blob.upload_from_filename(source_file_name)
 
     print('File {} uploaded to {}.'.format(
@@ -39,8 +41,6 @@ def annotate_image(bucket_name, file_name, output):
     """ Annotate file_name, outputs to json if output is True """
     # Client to Vision API
     client = vision.ImageAnnotatorClient()
-
-    project_id = "carbide-booth-239600"
 
     # Name of file in google bucket (must be anonymously accessible)
     file_name = 'gs://' + bucket_name + '/' + file_name
