@@ -72,6 +72,11 @@ docs/_build/
 # PyBuilder
 target/
 
+# VS Code settings and virtual env directories
+.vscode/
+bin/
+include/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
